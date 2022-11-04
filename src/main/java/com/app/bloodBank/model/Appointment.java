@@ -5,27 +5,27 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Appointment {
-    private UUID id;
+    private int id;
     private ArrayList<FacilityAdmin> medicalStaff;
     private LocalDateTime dateTime;
     private int durationInMinutes;
     private RegisteredUser user;
+    private AppointmentStatus appointmentStatus;
 
     public Appointment(){}
 
-    public Appointment(ArrayList<FacilityAdmin> medicalStaff, LocalDateTime dateTime, int durationInMinutes, UUID id, RegisteredUser user) {
+    public Appointment(ArrayList<FacilityAdmin> medicalStaff, LocalDateTime dateTime, int durationInMinutes, int id, RegisteredUser user, AppointmentStatus status) {
         this.medicalStaff = medicalStaff;
         this.dateTime = dateTime;
         this.durationInMinutes = durationInMinutes;
         this.id = id;
         this.user = user;
+        this.appointmentStatus = status;
     }
 
-    public UUID getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -60,4 +60,8 @@ public class Appointment {
     public void setUser(RegisteredUser user) {
         this.user = user;
     }
+
+    public AppointmentStatus getAppointmentStatus() { return appointmentStatus; }
+
+    public void setAppointmentStatus(AppointmentStatus appointmentStatus) { this.appointmentStatus = appointmentStatus; }
 }

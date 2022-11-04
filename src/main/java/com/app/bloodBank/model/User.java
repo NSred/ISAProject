@@ -3,7 +3,7 @@ package com.app.bloodBank.model;
 import java.util.UUID;
 
 public class User {
-    private UUID id;
+    private int id;
     private String jmbg;
     private String name;
     private String surname;
@@ -14,11 +14,9 @@ public class User {
     private Gender gender;
     private ProfessionType professionType;
     private String professionDescription;
-    private UserRole userRole;
-
     public User(){}
 
-    public User(UUID id, String jmbg, String name, String surname, String email, String password, Address address, String phoneNumber, Gender gender, ProfessionType professionType, String professionDescription, UserRole userRole) {
+    public User(int id, String jmbg, String name, String surname, String email, String password, Address address, String phoneNumber, Gender gender, ProfessionType professionType, String professionDescription) {
         this.id = id;
         this.jmbg = jmbg;
         this.name = name;
@@ -30,28 +28,23 @@ public class User {
         this.gender = gender;
         this.professionType = professionType;
         this.professionDescription = professionDescription;
-        this.userRole = userRole;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getJmbg() {
-        return jmbg;
-    }
+    public String getJmbg() { return jmbg; }
 
     public void setJmbg(String jmbg) {
         this.jmbg = jmbg;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     public void setName(String name) {
         this.name = name;
@@ -117,11 +110,4 @@ public class User {
 
     public void setProfessionDescription(String professionDescription) { this.professionDescription = professionDescription; }
 
-    public UserRole getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
-    }
 }

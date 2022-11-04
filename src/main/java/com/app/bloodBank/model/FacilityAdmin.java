@@ -9,8 +9,8 @@ public class FacilityAdmin extends User{
 
     public FacilityAdmin(){}
 
-    public FacilityAdmin(UUID id, String jmbg, String name, String surname, String email, String password, Address address, String phoneNumber, Gender gender, ProfessionType professionType, String professionDescription, UserRole userRole, Facility facility, ArrayList<Appointment> appointments) {
-        super(id, jmbg, name, surname, email, password, address, phoneNumber, gender, professionType, professionDescription, userRole);
+    public FacilityAdmin(int id, String jmbg, String name, String surname, String email, String password, Address address, String phoneNumber, Gender gender, ProfessionType professionType, String professionDescription, Facility facility, ArrayList<Appointment> appointments) {
+        super(id, jmbg, name, surname, email, password, address, phoneNumber, gender, professionType, professionDescription);
         this.facility = facility;
         this.appointments = appointments;
     }
