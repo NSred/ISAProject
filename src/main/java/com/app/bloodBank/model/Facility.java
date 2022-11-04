@@ -5,37 +5,31 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Facility {
-    private UUID id;
+    private int id;
     private String name;
     private Address address;
     private String description;
     private double averageGrade;
-    private ArrayList<FacilityAdmin> facilityAdmins;
-    private ArrayList<Appointment> freeAppointments;
     private LocalTime startTime;
     private LocalTime endTime;
-    private BloodStorage bloodStorage;
 
     public Facility(){}
 
-    public Facility(String name, Address address, String description, double averageGrade, ArrayList<FacilityAdmin> facilityAdmins, ArrayList<Appointment> freeAppointments, UUID id, LocalTime startTime, LocalTime endTime, BloodStorage bloodStorage) {
+    public Facility(String name, Address address, String description, double averageGrade, ArrayList<FacilityAdmin> facilityAdmins, ArrayList<Appointment> freeAppointments, int id, LocalTime startTime, LocalTime endTime, BloodStorage bloodStorage) {
         this.name = name;
         this.address = address;
         this.description = description;
         this.averageGrade = averageGrade;
-        this.facilityAdmins = facilityAdmins;
-        this.freeAppointments = freeAppointments;
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.bloodStorage = bloodStorage;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -71,20 +65,6 @@ public class Facility {
         this.averageGrade = averageGrade;
     }
 
-    public ArrayList<FacilityAdmin> getFacilityAdmins() {
-        return facilityAdmins;
-    }
-
-    public void setFacilityAdmins(ArrayList<FacilityAdmin> facilityAdmins) {
-        this.facilityAdmins = facilityAdmins;
-    }
-
-    public ArrayList<Appointment> getFreeAppointments() {
-        return freeAppointments;
-    }
-
-    public void setFreeAppointments(ArrayList<Appointment> freeAppointments) { this.freeAppointments = freeAppointments; }
-
     public LocalTime getStartTime() {
         return startTime;
     }
@@ -101,7 +81,4 @@ public class Facility {
         this.endTime = endTime;
     }
 
-    public BloodStorage getBloodStorage() { return bloodStorage; }
-
-    public void setBloodStorage(BloodStorage bloodStorage) { this.bloodStorage = bloodStorage; }
 }

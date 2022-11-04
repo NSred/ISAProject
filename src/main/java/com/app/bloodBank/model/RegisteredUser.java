@@ -6,15 +6,19 @@ public class RegisteredUser extends User{
     private int penalties;
     private double points;
     private RegisteredUserCategory category;
-    //popusti i kuponi, qr kodovi zakazanih termina
+    private double discount;
+    private int coupons;
 
     public RegisteredUser(){}
 
-    public RegisteredUser(UUID id, String jmbg, String name, String surname, String email, String password, Address address, String phoneNumber, Gender gender, ProfessionType professionType, String professionDescription, UserRole userRole, int penalties, double points, RegisteredUserCategory category) {
-        super(id, jmbg, name, surname, email, password, address, phoneNumber, gender, professionType, professionDescription, userRole);
+    public RegisteredUser(int id, String jmbg, String name, String surname, String email, String password, Address address, String phoneNumber, Gender gender,
+                          ProfessionType professionType, String professionDescription, int penalties, double points, RegisteredUserCategory category, double discount, int coupons) {
+        super(id, jmbg, name, surname, email, password, address, phoneNumber, gender, professionType, professionDescription);
         this.penalties = penalties;
         this.points = points;
         this.category = category;
+        this.discount = discount;
+        this.coupons = coupons;
     }
 
     public int getPenalties() {
@@ -40,4 +44,12 @@ public class RegisteredUser extends User{
     public void setCategory(RegisteredUserCategory category) {
         this.category = category;
     }
+
+    public double getDiscount() { return discount; }
+
+    public void setDiscount(double discount) { this.discount = discount; }
+
+    public int getCoupons() { return coupons; }
+
+    public void setCoupons(int coupons) { this.coupons = coupons; }
 }

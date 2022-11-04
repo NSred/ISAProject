@@ -3,27 +3,31 @@ package com.app.bloodBank.model;
 import java.util.UUID;
 
 public class Address {
-    private UUID id;
+    private int id;
     private String country;
     private String city;
     private String street;
     private String number;
+    private double longitude;
+    private double latitude;
 
     public Address(){}
 
-    public Address(UUID id, String country, String city, String street, String number) {
+    public Address(int id, String country, String city, String street, String number, double longitude, double latitude) {
         this.id = id;
         this.country = country;
         this.city = city;
         this.street = street;
         this.number = number;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -54,4 +58,12 @@ public class Address {
     public String getNumber() { return number; }
 
     public void setNumber(String number) { this.number = number; }
+
+    public double getLongitude() { return longitude; }
+
+    public void setLongitude(double longitude) { this.longitude = longitude; }
+
+    public double getLatitude() { return latitude; }
+
+    public void setLatitude(double latitude) { this.latitude = latitude; }
 }

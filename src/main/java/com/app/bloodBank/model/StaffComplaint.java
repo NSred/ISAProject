@@ -1,29 +1,28 @@
 package com.app.bloodBank.model;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
-public class Complaint {
-    private UUID id;
+public class StaffComplaint {
+    private int id;
     private RegisteredUser user;
     private String message;
     private String response;
-    //centar i osoblje
+    private FacilityAdmin facilityAdmin;
+    public StaffComplaint(){}
 
-    public Complaint(){}
-
-    public Complaint(UUID id, RegisteredUser user, String message, String response) {
+    public StaffComplaint(int id, RegisteredUser user, String message, String response, FacilityAdmin facilityAdmin) {
         this.id = id;
         this.user = user;
         this.message = message;
         this.response = response;
+        this.facilityAdmin = facilityAdmin;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -50,4 +49,8 @@ public class Complaint {
     public void setResponse(String response) {
         this.response = response;
     }
+
+    public FacilityAdmin getFacilityAdmin() { return facilityAdmin; }
+
+    public void setFacilityAdmin(FacilityAdmin facilityAdmin) { this.facilityAdmin = facilityAdmin; }
 }

@@ -1,41 +1,32 @@
 package com.app.bloodBank.model;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.UUID;
 
-public class Examination {
-    private UUID id;
+public class Examination extends Appointment{
     private int equipmentAmount;
-    private int weightInKg;
-    private boolean isAbleToDonate;
-    private RegisteredUser user;
+    private double price;
+    private double bloodAmount;
 
     public Examination(){}
 
-    public Examination(UUID id, int equipmentAmount, int weightInKg, boolean isAbleToDonate, RegisteredUser user) {
-        this.id = id;
+    public Examination(ArrayList<FacilityAdmin> medicalStaff, LocalDateTime dateTime, int durationInMinutes, int id, RegisteredUser user, AppointmentStatus status, int equipmentAmount, double price, double bloodAmount) {
+        super(medicalStaff, dateTime, durationInMinutes, id, user, status);
         this.equipmentAmount = equipmentAmount;
-        this.weightInKg = weightInKg;
-        this.isAbleToDonate = isAbleToDonate;
-        this.user = user;
+        this.price = price;
+        this.bloodAmount = bloodAmount;
     }
-
-    public UUID getId() { return id; }
-
-    public void setId(UUID id) { this.id = id; }
 
     public int getEquipmentAmount() { return equipmentAmount; }
 
     public void setEquipmentAmount(int equipmentAmount) { this.equipmentAmount = equipmentAmount; }
 
-    public int getWeightInKg() { return weightInKg; }
+    public double getPrice() { return price; }
 
-    public void setWeightInKg(int weightInKg) { this.weightInKg = weightInKg; }
+    public void setPrice(double price) { this.price = price; }
 
-    public boolean isAbleToDonate() { return isAbleToDonate; }
+    public double getBloodAmount() { return bloodAmount; }
 
-    public void setAbleToDonate(boolean ableToDonate) { isAbleToDonate = ableToDonate; }
-
-    public RegisteredUser getUser() { return user; }
-
-    public void setUser(RegisteredUser user) { this.user = user; }
+    public void setBloodAmount(double bloodAmount) { this.bloodAmount = bloodAmount; }
 }
