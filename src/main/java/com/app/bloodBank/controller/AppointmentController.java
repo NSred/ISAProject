@@ -2,6 +2,7 @@ package com.app.bloodBank.controller;
 
 import com.app.bloodBank.model.Appointment;
 import com.app.bloodBank.service.AppointmentService;
+import com.app.bloodBank.service.IAppointmentService;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
-@Tag(name = "Appointment controller", description = "The appointment API")
+//@Tag(name = "Appointment controller", description = "The appointment API")
 @RestController
 @RequestMapping("/api/appointments")
 public class AppointmentController {
+    private IAppointmentService appointmentService;
     @Autowired
-    private AppointmentService appointmentService;
+    public AppointmentController(IAppointmentService appointmentService){
+        this.appointmentService = appointmentService;
+    }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
