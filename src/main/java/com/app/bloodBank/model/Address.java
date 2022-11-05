@@ -1,9 +1,14 @@
 package com.app.bloodBank.model;
 
-import java.util.UUID;
+import javax.persistence.*;
+import java.io.Serializable;
 
-public class Address {
-    private int id;
+@Entity
+public class Address implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
+    private Integer id;
     private String country;
     private String city;
     private String street;
@@ -13,7 +18,7 @@ public class Address {
 
     public Address(){}
 
-    public Address(int id, String country, String city, String street, String number, double longitude, double latitude) {
+    public Address(Integer id, String country, String city, String street, String number, double longitude, double latitude) {
         this.id = id;
         this.country = country;
         this.city = city;
@@ -23,11 +28,11 @@ public class Address {
         this.latitude = latitude;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

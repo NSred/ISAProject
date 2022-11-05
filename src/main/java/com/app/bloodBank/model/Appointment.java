@@ -1,12 +1,12 @@
 package com.app.bloodBank.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.UUID;
+import java.util.Set;
 
-public class Appointment {
-    private int id;
-    private ArrayList<FacilityAdmin> medicalStaff;
+public class Appointment implements Serializable {
+    private Integer id;
+    private Set<FacilityAdmin> medicalStaff;
     private LocalDateTime dateTime;
     private int durationInMinutes;
     private RegisteredUser user;
@@ -14,7 +14,7 @@ public class Appointment {
 
     public Appointment(){}
 
-    public Appointment(ArrayList<FacilityAdmin> medicalStaff, LocalDateTime dateTime, int durationInMinutes, int id, RegisteredUser user, AppointmentStatus status) {
+    public Appointment(Set<FacilityAdmin> medicalStaff, LocalDateTime dateTime, int durationInMinutes, Integer id, RegisteredUser user, AppointmentStatus status) {
         this.medicalStaff = medicalStaff;
         this.dateTime = dateTime;
         this.durationInMinutes = durationInMinutes;
@@ -23,17 +23,17 @@ public class Appointment {
         this.appointmentStatus = status;
     }
 
-    public int getId() { return id; }
+    public Integer getId() { return id; }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public ArrayList<FacilityAdmin> getMedicalStaff() {
+    public Set<FacilityAdmin> getMedicalStaff() {
         return medicalStaff;
     }
 
-    public void setMedicalStaff(ArrayList<FacilityAdmin> medicalStaff) {
+    public void setMedicalStaff(Set<FacilityAdmin> medicalStaff) {
         this.medicalStaff = medicalStaff;
     }
 

@@ -1,12 +1,16 @@
 package com.app.bloodBank.model;
 
+import javax.persistence.*;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.UUID;
 
+@Entity
 public class Facility {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
+    private Integer id;
     private String name;
+    @ManyToOne
     private Address address;
     private String description;
     private double averageGrade;
@@ -15,7 +19,7 @@ public class Facility {
 
     public Facility(){}
 
-    public Facility(String name, Address address, String description, double averageGrade, ArrayList<FacilityAdmin> facilityAdmins, ArrayList<Appointment> freeAppointments, int id, LocalTime startTime, LocalTime endTime, BloodStorage bloodStorage) {
+    public Facility(String name, Address address, String description, double averageGrade, Integer id, LocalTime startTime, LocalTime endTime) {
         this.name = name;
         this.address = address;
         this.description = description;
@@ -25,11 +29,11 @@ public class Facility {
         this.endTime = endTime;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

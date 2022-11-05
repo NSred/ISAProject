@@ -1,6 +1,5 @@
 package com.app.bloodBank.model;
 
-import java.util.UUID;
 
 public class RegisteredUser extends User{
     private int penalties;

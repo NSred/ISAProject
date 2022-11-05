@@ -1,14 +1,22 @@
 package com.app.bloodBank.model;
 
-import java.util.UUID;
+import javax.persistence.*;
+import java.io.Serializable;
 
-public class User {
-    private int id;
+@Entity
+@Table(name = "users_table")
+public class User implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
+    private Integer id;
+    @Column(unique = true)
     private String jmbg;
     private String name;
     private String surname;
     private String email;
     private String password;
+    @ManyToOne
     private Address address;
     private String phoneNumber;
     private Gender gender;
@@ -16,7 +24,7 @@ public class User {
     private String professionDescription;
     public User(){}
 
-    public User(int id, String jmbg, String name, String surname, String email, String password, Address address, String phoneNumber, Gender gender, ProfessionType professionType, String professionDescription) {
+    public User(Integer id, String jmbg, String name, String surname, String email, String password, Address address, String phoneNumber, Gender gender, ProfessionType professionType, String professionDescription) {
         this.id = id;
         this.jmbg = jmbg;
         this.name = name;
@@ -30,11 +38,11 @@ public class User {
         this.professionDescription = professionDescription;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
