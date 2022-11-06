@@ -1,5 +1,6 @@
 package com.app.bloodBank.model;
 
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Set;
@@ -11,9 +12,9 @@ public class Examination extends Appointment{
 
     public Examination(){}
 
-    public Examination(Set<FacilityAdmin> medicalStaff, LocalDateTime dateTime, int durationInMinutes, int id, RegisteredUser user, AppointmentStatus status, int equipmentAmount, double price, double bloodAmount) {
+    public Examination(LocalDateTime dateTime, int durationInMinutes, int id, RegisteredUser user, AppointmentStatus status, int equipmentAmount, double price, double bloodAmount) {
 
-        super(medicalStaff, dateTime, durationInMinutes, id, user, status);
+        super( dateTime, durationInMinutes, id, user, status);
         this.equipmentAmount = equipmentAmount;
         this.price = price;
         this.bloodAmount = bloodAmount;
