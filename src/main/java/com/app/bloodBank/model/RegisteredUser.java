@@ -1,9 +1,16 @@
 package com.app.bloodBank.model;
 
 
-public class RegisteredUser extends User{
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import java.io.Serializable;
+
+@Entity
+public class RegisteredUser extends User implements Serializable {
     private int penalties;
     private double points;
+    @Enumerated(EnumType.STRING)
     private RegisteredUserCategory category;
     private double discount;
     private int coupons;

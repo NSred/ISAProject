@@ -3,8 +3,7 @@ package com.app.bloodBank.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "users_table")
+@MappedSuperclass
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +18,9 @@ public class User implements Serializable {
     @ManyToOne
     private Address address;
     private String phoneNumber;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
+    @Enumerated(EnumType.STRING)
     private ProfessionType professionType;
     private String professionDescription;
     public User(){}

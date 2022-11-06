@@ -1,21 +1,26 @@
 package com.app.bloodBank.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+@Entity
 public class Appointment implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private Integer id;
-    private Set<FacilityAdmin> medicalStaff;
     private LocalDateTime dateTime;
     private int durationInMinutes;
+    @ManyToOne
     private RegisteredUser user;
+    @Enumerated(EnumType.STRING)
     private AppointmentStatus appointmentStatus;
 
     public Appointment(){}
 
-    public Appointment(Set<FacilityAdmin> medicalStaff, LocalDateTime dateTime, int durationInMinutes, Integer id, RegisteredUser user, AppointmentStatus status) {
-        this.medicalStaff = medicalStaff;
+    public Appointment(LocalDateTime dateTime, int durationInMinutes, Integer id, RegisteredUser user, AppointmentStatus status) {
         this.dateTime = dateTime;
         this.durationInMinutes = durationInMinutes;
         this.id = id;
@@ -27,14 +32,6 @@ public class Appointment implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Set<FacilityAdmin> getMedicalStaff() {
-        return medicalStaff;
-    }
-
-    public void setMedicalStaff(Set<FacilityAdmin> medicalStaff) {
-        this.medicalStaff = medicalStaff;
     }
 
     public LocalDateTime getDateTime() {
