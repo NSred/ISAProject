@@ -10,4 +10,5 @@ public interface IFacilityService {
     Optional<Facility> findById(Integer id);
     void create(Facility facility);
     void delete(Integer id);
+    void update(Facility facility);
 }

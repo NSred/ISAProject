@@ -51,6 +51,22 @@ public class FacilityController {
         }
     }
 
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> update(@RequestBody Facility facility)  {
+
+        Optional<Facility> findFacility = facilityService.findById(facility.getId());
+
+        if (findFacility.isPresent()) {
+            facilityService.update(facility);
+            return new ResponseEntity<>("Successfully created", HttpStatus.OK);
+
+        }
+        else{
+            return new ResponseEntity<>("Facility with given id does not exist",HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@Parameter(name="id", required = true) @PathVariable("id") Integer id) {
         Optional<Facility> facility = facilityService.findById(id);
