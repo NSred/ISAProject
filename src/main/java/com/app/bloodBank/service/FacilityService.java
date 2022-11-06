@@ -21,7 +21,10 @@ public class FacilityService implements IFacilityService{
         return facilityRepository.findAll();
     }
 
-    public Optional<Facility> findById(Integer id){ return facilityRepository.findById(id);}
+
+    public Optional<Facility> findById(Integer id){ 
+        return facilityRepository.findById(id);
+    }
 
     public void create(Facility facility){
         facilityRepository.save(facility);
@@ -31,5 +34,8 @@ public class FacilityService implements IFacilityService{
         facilityRepository.deleteById(id);
     }
 
-    public void update(Facility facility) { facilityRepository.save(facility);}
+    public void update(Facility facility) { 
+        facilityRepository.save(facility);
+    }
+
 }
